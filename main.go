@@ -4,6 +4,7 @@ import (
 	"fiber/config"
 	"fiber/routes"
 	"fiber/migrations"
+	"fiber/seeders"
 
 	
 	"github.com/gofiber/fiber/v2"
@@ -20,6 +21,7 @@ func main() {
 		Views: engine,
 	})
 
+	seeders.userSeeder()
 	routes.SetupRoutes(app)
 
 	app.Listen(":3000")
