@@ -3,6 +3,7 @@ package main
 import (
 	"fiber/config"
 	"fiber/routes"
+	"fiber/migrations"
 
 	
 	"github.com/gofiber/fiber/v2"
@@ -11,6 +12,8 @@ import (
 
 func main() {
 	config.ConnectDB()
+	migrations.RemoveCityColumn()
+
 	engine := html.New("./views", ".html")
 
 	app := fiber.New(fiber.Config{
